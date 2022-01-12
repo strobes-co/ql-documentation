@@ -1,4 +1,5 @@
 
+
 # ql-documentation
 A documentation on how to use Strobes QL with GraphQL or API client 
 
@@ -57,6 +58,7 @@ The fields are supported when you're calling allAssets GQL call or /assets/ api 
 | exploit_available| BoolType | exploit_available = "true" | 
 | patch_available | BoolType | patch_available= "true" | 
 | created_by.id | IntType | created_by.id = 1 | 
+| created_by.email | StrType | created_by.email = "example@gmail.com" | 
 | created| StrType | created > "2021-12-01" | 
 | asset_port.port | IntType  | asset_port.port not in (80, 8080) | 
 | asset_port.state | IntType   | asset_port.state not in (1, 2, 3) | Refer for Port types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
@@ -64,3 +66,30 @@ The fields are supported when you're calling allAssets GQL call or /assets/ api 
 | asset_port.service | StrType | asset_port.service = "ssh" | 
 
 #### Vulnerabilities
+The fields are supported when you're calling allBugs GQL call or /assets/ api call.
+| Field  | Type | Example | Reference
+|--|--|--|--|
+| id | IntType | id = 1 |
+| title | StrType | title = "SSL" |
+| severity | IntType| severity in (1,2) | Refer for Severity types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
+| status | IntType| status in (2,3) | Refer for Status types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
+| prioritization_score | IntType| prioritization_score >= 700 | 
+| exploit_available| BoolType | exploit_available = "true" | 
+| asset.id| IntType | asset.id = 1 | 
+| cve.cve_id | StrType | cve.cve_id = "CVE-2020-1234" | 
+| assigned_to.id | IntType | assigned_to.id = 1 | 
+| assigned_to.email | StrType| assigned_to.email = "example@gmail.com" | 
+| description | StrType| description = "test" | 
+| created | StrType| created >= "2021-12-01" | 
+| sla_violated | BoolType | sla_violated = "true" | 
+| patch_available| BoolType | patch_available= "true" | 
+| asset.exposed| IntType | asset.exposed = 1 | Refer for Exposure types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
+| cvss| FloatType | cvss > 9.0 | 
+| asset.type | IntType | asset.type = 1 | Refer for Asset types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
+| asset.sensitivity| IntType | asset.sensitivity = 1 | Refer for Asset sensitivity types: [strobes-co/strobes-api-client (github.com)](https://github.com/strobes-co/strobes-api-client#list_vulnerabilities)
+| bug_tags.name | StrType | bug_tags.name in ("v1", "tag2") | 
+| cwe.cwe_id | StrType | cwe.cwe_id in ("CWE-89", "CWE-90") | 
+| ipaddress | StrType | ipaddress = "192.168.0.1"  | 
+| mac_address | StrType | mac_address = "12:13:1E:12"  | 
+| hostname | StrType | hostname = "wesecureapp.com"  | 
+| bug_tracker.issue_key | StrType | bug_tracker.issue_key = "JIRA-123"  | 
