@@ -40,7 +40,7 @@ You can also group and execute queries to filter or drill down the results deepe
 ### Fields Supported 
 
 #### Assets
-The fields are support when you're calling allAssets GQL call or /assets/ api call.
+The fields are supported when you're calling allAssets GQL call or /assets/ api call.
 | Field  | Type | Example | Reference
 |--|--|--|--|
 | id | IntType | id = 1 |
